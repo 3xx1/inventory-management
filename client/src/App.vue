@@ -1,42 +1,75 @@
 <template>
-  <div class="app">
-    <header class="top-nav">
-      <div class="nav-container">
-        <div class="logo">
-          <h1>{{ t('nav.companyName') }}</h1>
-          <span class="subtitle">{{ t('nav.subtitle') }}</span>
-        </div>
-        <nav class="nav-tabs">
-          <router-link to="/" :class="{ active: $route.path === '/' }">
-            {{ t('nav.overview') }}
-          </router-link>
-          <router-link to="/inventory" :class="{ active: $route.path === '/inventory' }">
-            {{ t('nav.inventory') }}
-          </router-link>
-          <router-link to="/orders" :class="{ active: $route.path === '/orders' }">
-            {{ t('nav.orders') }}
-          </router-link>
-          <router-link to="/spending" :class="{ active: $route.path === '/spending' }">
-            {{ t('nav.finance') }}
-          </router-link>
-          <router-link to="/demand" :class="{ active: $route.path === '/demand' }">
-            {{ t('nav.demandForecast') }}
-          </router-link>
-          <router-link to="/reports" :class="{ active: $route.path === '/reports' }">
-            Reports
-          </router-link>
-        </nav>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h1>{{ t('nav.companyName') }}</h1>
+        <span class="subtitle">{{ t('nav.subtitle') }}</span>
+      </div>
+      <nav class="sidebar-nav" aria-label="Main">
+        <router-link to="/" class="nav-item" :class="{ active: $route.path === '/' }" :aria-current="$route.path === '/' ? 'page' : null">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M2 8L9 2L16 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 7V15C4 15.5523 4.44772 16 5 16H13C13.5523 16 14 15.5523 14 15V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 16V11H11V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="nav-label">{{ t('nav.overview') }}</span>
+        </router-link>
+        <router-link to="/inventory" class="nav-item" :class="{ active: $route.path === '/inventory' }" :aria-current="$route.path === '/inventory' ? 'page' : null">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M2 5.5L9 2L16 5.5L9 9L2 5.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M2 5.5V12.5L9 16L16 12.5V5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 9V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="nav-label">{{ t('nav.inventory') }}</span>
+        </router-link>
+        <router-link to="/orders" class="nav-item" :class="{ active: $route.path === '/orders' }" :aria-current="$route.path === '/orders' ? 'page' : null">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M6 3H12C12.5523 3 13 3.44772 13 4V15C13 15.5523 12.5523 16 12 16H6C5.44772 16 5 15.5523 5 15V4C5 3.44772 5.44772 3 6 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M7 2H11V4H7V2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M7 8H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7 11H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="nav-label">{{ t('nav.orders') }}</span>
+        </router-link>
+        <router-link to="/spending" class="nav-item" :class="{ active: $route.path === '/spending' }" :aria-current="$route.path === '/spending' ? 'page' : null">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M9 5V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M11.25 7C11.25 6.17157 10.2426 5.5 9 5.5C7.75736 5.5 6.75 6.17157 6.75 7C6.75 7.82843 7.75736 8.5 9 8.5C10.2426 8.5 11.25 9.17157 11.25 10C11.25 10.8284 10.2426 11.5 9 11.5C7.75736 11.5 6.75 10.8284 6.75 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="nav-label">{{ t('nav.finance') }}</span>
+        </router-link>
+        <router-link to="/demand" class="nav-item" :class="{ active: $route.path === '/demand' }" :aria-current="$route.path === '/demand' ? 'page' : null">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M2 13L6.5 8L10 11L16 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11.5 4H16V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="nav-label">{{ t('nav.demandForecast') }}</span>
+        </router-link>
+        <router-link to="/reports" class="nav-item" :class="{ active: $route.path === '/reports' }" :aria-current="$route.path === '/reports' ? 'page' : null">
+          <svg class="nav-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M4 2H11L15 6V15C15 15.5523 14.5523 16 14 16H4C3.44772 16 3 15.5523 3 15V3C3 2.44772 3.44772 2 4 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M6.5 12.5V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9 12.5V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M11.5 12.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="nav-label">Reports</span>
+        </router-link>
+      </nav>
+      <div class="sidebar-footer">
         <LanguageSwitcher />
         <ProfileMenu
           @show-profile-details="showProfileDetails = true"
           @show-tasks="showTasks = true"
         />
       </div>
-    </header>
-    <FilterBar />
-    <main class="main-content">
-      <router-view />
-    </main>
+    </aside>
+    <div class="main-shell">
+      <FilterBar />
+      <main class="main-content">
+        <router-view />
+      </main>
+    </div>
 
     <ProfileDetailsModal
       :is-open="showProfileDetails"
@@ -176,47 +209,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
+.shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
   min-height: 100vh;
 }
 
-.top-nav {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+.sidebar {
   position: sticky;
   top: 0;
+  height: 100vh;
+  overflow: visible;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
   z-index: 100;
 }
 
-.nav-container {
-  max-width: 1600px;
-  margin: 0 auto;
+.sidebar-logo {
   display: flex;
-  align-items: center;
-  padding: 0 2rem;
-  height: 70px;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.5rem 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.nav-container > .nav-tabs {
-  margin-left: auto;
-  margin-right: 1rem;
-}
-
-.nav-container > .language-switcher {
-  margin-right: 1rem;
-}
-
-.logo {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-}
-
-.logo h1 {
-  font-size: 1.375rem;
+.sidebar-logo h1 {
+  font-size: 1.25rem;
   font-weight: 700;
   color: #0f172a;
   letter-spacing: -0.025em;
@@ -226,51 +246,83 @@ body {
   font-size: 0.813rem;
   color: #64748b;
   font-weight: 400;
-  padding-left: 0.75rem;
-  border-left: 1px solid #e2e8f0;
 }
 
-.nav-tabs {
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
   display: flex;
+  flex-direction: column;
   gap: 0.25rem;
+  padding: 1rem 0.75rem;
 }
 
-.nav-tabs a {
-  padding: 0.625rem 1.25rem;
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 1rem;
   color: #64748b;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.938rem;
   border-radius: 6px;
+  border-left: 3px solid transparent;
   transition: all 0.2s ease;
   position: relative;
 }
 
-.nav-tabs a:hover {
+.nav-icon {
+  flex-shrink: 0;
+}
+
+.nav-item:hover {
   color: #0f172a;
   background: #f1f5f9;
 }
 
-.nav-tabs a.active {
+.nav-item.active {
   color: #2563eb;
   background: #eff6ff;
+  border-left-color: #2563eb;
 }
 
-.nav-tabs a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #2563eb;
+.sidebar-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: visible;
+}
+
+.sidebar-footer .language-switcher,
+.sidebar-footer .profile-menu {
+  width: 100%;
+}
+
+.sidebar-footer .language-button,
+.sidebar-footer .profile-button {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.sidebar-footer .profile-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-shell {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .main-content {
   flex: 1;
-  max-width: 1600px;
   width: 100%;
-  margin: 0 auto;
   padding: 1.5rem 2rem;
 }
 
@@ -349,6 +401,12 @@ body {
   padding: 1.25rem;
   border: 1px solid #e2e8f0;
   margin-bottom: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .card-header {
@@ -482,5 +540,57 @@ tbody tr:hover {
   border-radius: 8px;
   margin: 1rem 0;
   font-size: 0.938rem;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 72px 1fr;
+  }
+
+  .sidebar-logo h1,
+  .sidebar-logo .subtitle {
+    display: none;
+  }
+
+  .sidebar-logo {
+    padding: 1.25rem 0.5rem;
+    align-items: center;
+  }
+
+  .sidebar-nav {
+    padding: 1rem 0.625rem;
+    align-items: center;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 0.625rem;
+    width: 100%;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .sidebar-footer {
+    padding: 1rem 0.5rem;
+    align-items: center;
+  }
+
+  .sidebar-footer .language-button,
+  .sidebar-footer .profile-button {
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  .sidebar-footer .language-label,
+  .sidebar-footer .profile-name,
+  .sidebar-footer .chevron {
+    display: none;
+  }
+
+  .main-content {
+    padding: 1.25rem 1rem;
+  }
 }
 </style>
